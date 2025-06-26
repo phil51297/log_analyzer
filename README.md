@@ -196,12 +196,6 @@ L'outil simule une analyse réaliste avec :
 ./log_analyzer analyze -c config.json -o test_report.json -v
 ```
 
-## 👥 Équipe de développement
-
-- **Développeur principal** : phil51297
-- **Framework utilisé** : Go + Cobra CLI
-- **Version** : 1.0.0
-
 ## 🔍 Tests et validation
 
 Le projet inclut :
@@ -215,17 +209,3 @@ Le projet inclut :
 
 - **Go** : 1.24.3+
 - **github.com/spf13/cobra** : v1.9.1 (CLI framework)
-
-## 🚦 Status du projet
-
-Le projet respecte entièrement le cahier des charges avec :
-
-- ✅ Toutes les fonctionnalités demandées implémentées
-- ✅ Architecture modulaire respectée
-- ✅ Concurrence et gestion d'erreurs conformes
-- ✅ Interface CLI complète et fonctionnelle
-- ✅ Documentation complète
-
-## 📄 Licence
-
-Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
