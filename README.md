@@ -89,36 +89,6 @@ Créez un fichier `config.json` avec la liste des logs à analyser :
 ```
 
 
-### Packages internes
-
-#### `internal/config`
-
-- **Responsabilité** : Chargement et validation des configurations JSON
-- **Fonctions principales** :
-  - `LoadConfig(configPath string)` : Charge la configuration depuis un fichier JSON
-
-#### `internal/analyzer`
-
-- **Responsabilité** : Analyse des logs et gestion des erreurs
-- **Fonctions principales** :
-  - `AnalyzeLog(logConfig config.LogConfig)` : Analyse un fichier de log
-  - Erreurs personnalisées : `FileNotFoundError`, `ParseError`
-  - Utilitaires : `IsFileNotFoundError()`, `IsParseError()`
-
-#### `internal/reporter`
-
-- **Responsabilité** : Export des résultats
-- **Fonctions principales** :
-  - `ExportToJSON(results []analyzer.AnalysisResult, filePath string)` : Export vers fichier JSON
-
-## 🎲 Simulation d'analyse
-
-L'outil simule une analyse réaliste avec :
-
-- **Délai aléatoire** : 50-200ms par fichier (simulation de traitement)
-- **Erreurs aléatoires** : 10% de chance d'erreur de parsing
-- **Vérifications** : Existence, lisibilité et type de fichier
-
 ## 📝 Exemples d'utilisation
 
 ### Analyse simple
@@ -145,8 +115,3 @@ L'outil simule une analyse réaliste avec :
 # Utiliser les fichiers de test inclus
 ./log_analyzer analyze -c config.json -o test_report.json -v
 ```
-
-## 📋 Dépendances
-
-- **Go** : 1.24.3+
-- **github.com/spf13/cobra** : v1.9.1 (CLI framework)
