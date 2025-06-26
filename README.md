@@ -5,15 +5,6 @@
 
 Un outil en ligne de commande (CLI) performant développé en Go pour analyser des fichiers de logs en parallèle. LogAnalyzer utilise la concurrence native de Go pour traiter simultanément plusieurs fichiers de logs et générer des rapports détaillés avec une gestion d'erreurs robuste.
 
-## 🎯 Fonctionnalités
-
-- ✅ **Analyse parallèle** de multiples fichiers de logs via goroutines
-- ✅ **Gestion d'erreurs robuste** avec types d'erreurs personnalisées
-- ✅ **Interface CLI intuitive** basée sur Cobra
-- ✅ **Import/Export JSON** pour configuration et rapports
-- ✅ **Architecture modulaire** avec packages internes
-- ✅ **Mode verbeux** pour le débogage
-- ✅ **Simulation réaliste** d'analyse avec délais et erreurs aléatoires
 
 ## 🚀 Installation
 
@@ -97,27 +88,6 @@ Créez un fichier `config.json` avec la liste des logs à analyser :
 ]
 ```
 
-## 🏗️ Architecture
-
-Le projet suit une architecture modulaire avec les packages suivants :
-
-```
-log_analyzer/
-├── cmd/                    # Commandes CLI
-│   ├── root.go            # Commande racine
-│   └── analyze.go         # Commande d'analyse
-├── internal/
-│   ├── config/            # Gestion des configurations
-│   │   └── config.go      # Lecture JSON
-│   ├── analyzer/          # Moteur d'analyse
-│   │   ├── analyzer.go    # Logique d'analyse
-│   │   └── errors.go      # Erreurs personnalisées
-│   └── reporter/          # Export des résultats
-│       └── reporter.go    # Export JSON
-├── test_logs/             # Fichiers de test
-├── config.json            # Configuration exemple
-└── main.go               # Point d'entrée
-```
 
 ### Packages internes
 
@@ -140,26 +110,6 @@ log_analyzer/
 - **Responsabilité** : Export des résultats
 - **Fonctions principales** :
   - `ExportToJSON(results []analyzer.AnalysisResult, filePath string)` : Export vers fichier JSON
-
-## 🔧 Concepts techniques implémentés
-
-### Concurrence
-
-- **Goroutines** : Une goroutine par fichier de log à analyser
-- **WaitGroup** : Synchronisation des goroutines
-- **Channels** : Collecte sécurisée des résultats
-
-### Gestion d'erreurs
-
-- **Erreurs personnalisées** : `FileNotFoundError` et `ParseError`
-- **Error wrapping** : Utilisation d'`errors.As()` et `errors.Is()`
-- **Messages localisés** : Erreurs en français avec détails techniques
-
-### CLI avec Cobra
-
-- **Commandes structurées** : Commande racine et sous-commandes
-- **Flags typés** : `-c/--config`, `-o/--output`, `-v/--verbose`
-- **Validation** : Flag config marqué comme requis
 
 ## 🎲 Simulation d'analyse
 
@@ -195,15 +145,6 @@ L'outil simule une analyse réaliste avec :
 # Utiliser les fichiers de test inclus
 ./log_analyzer analyze -c config.json -o test_report.json -v
 ```
-
-## 🔍 Tests et validation
-
-Le projet inclut :
-
-- ✅ Validation manuelle avec fichiers de test
-- ✅ Gestion de cas d'erreur (fichiers inexistants)
-- ✅ Test de concurrence avec multiples fichiers
-- ✅ Validation des formats JSON
 
 ## 📋 Dépendances
 
