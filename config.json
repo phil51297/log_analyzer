@@ -1,12 +1,22 @@
 [
   {
-    "id": "web-server-1",
-    "path": "/var/log/nginx/access.log",
+    "id": "access-log",
+    "path": "test_logs/access.log",
     "type": "nginx-access"
   },
   {
-    "id": "app-backend-2",
-    "path": "/var/log/my_app/errors.log",
+    "id": "error-log",
+    "path": "test_logs/errors.log",
+    "type": "application-error"
+  },
+  {
+    "id": "corrupted-log",
+    "path": "test_logs/corrupted.log",
+    "type": "custom-app"
+  },
+  {
+    "id": "empty-log",
+    "path": "test_logs/empty.log",
     "type": "custom-app"
   }
 ]

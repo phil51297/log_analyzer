@@ -1,0 +1,16 @@
+[
+  {
+    "log_id": "invalid-path",
+    "file_path": "/non/existent/log.log",
+    "status": "FAILED",
+    "message": "Fichier introuvable.",
+    "error_details": "fichier introuvable: /non/existent/log.log"
+  },
+  {
+    "log_id": "web-server-1",
+    "file_path": "test.log",
+    "status": "OK",
+    "message": "Analyse terminée avec succès.",
+    "error_details": ""
+  }
+]

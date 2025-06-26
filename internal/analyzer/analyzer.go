@@ -2,10 +2,11 @@ package analyzer
 
 import (
 	"errors"
-	"github.com/phil51297/log_analyzer/internal/config"
 	"math/rand"
 	"os"
 	"time"
+
+	"github.com/phil51297/log_analyzer/internal/config"
 )
 
 type AnalysisResult struct {
@@ -25,7 +26,6 @@ func AnalyzeLog(logConfig config.LogConfig) AnalysisResult {
 		ErrorDetails: "",
 	}
 
-	// Vérification de l'existence du fichier
 	if err := checkFileAccess(logConfig.Path); err != nil {
 		result.Status = "FAILED"
 		result.ErrorDetails = err.Error()
@@ -38,12 +38,10 @@ func AnalyzeLog(logConfig config.LogConfig) AnalysisResult {
 		return result
 	}
 
-	// Simulation de l'analyse avec délai aléatoire (50-200ms)
 	r := rand.New(rand.NewSource(time.Now().UnixNano()))
 	analysisDelay := time.Duration(50+r.Intn(150)) * time.Millisecond
 	time.Sleep(analysisDelay)
 
-	// Simulation d'erreur de parsing (10% de chance)
 	if r.Float32() < 0.1 {
 		parseErr := NewParseError(logConfig.ID, "format de log invalide détecté")
 		result.Status = "FAILED"
