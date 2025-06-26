@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"github.com/phil51297/log_analyzer/cmd"
+)
 
 func main() {
-	fmt.Println("Hello, world!")
+	cmd.Execute()
 }
